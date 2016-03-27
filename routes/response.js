@@ -17,6 +17,11 @@ module.exports.unauthorized = {
     message : "unauthorized"
 };
 
+module.exports.notFound = {
+    status : 404,
+    message : "notFound"
+};
+
 module.exports.UserData = function(result,message){
     this.message = message;
     this.id = result[0].id;

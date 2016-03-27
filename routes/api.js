@@ -26,7 +26,7 @@ router.get('/getAllUsers/:pageNumber', function(req, res, next) {
     });
 });
 
-router.get('/getAUser/:userId', function(req, res, next) {
+router.get('/getAnUser/:userId', function(req, res, next) {
     var userId = req.params.userId;
     if(isNaN(userId)){
         res.status(response.badRequest.status).json( response.badRequest);
@@ -38,8 +38,13 @@ router.get('/getAUser/:userId', function(req, res, next) {
             res.status(response.internalError.status).json( response.internalError);
             return;
         }else {
-            res.json(new response.UserData(results,"Success"));
-            return;
+            if(results!=undefined && results[0]!=undefined){
+                res.json(new response.UserData(results, "Success"));
+                return;
+            }else {
+                res.status(response.notFound.status).json( response.notFound);
+                return;
+            }
         }
     });
 });
