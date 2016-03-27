@@ -21,7 +21,7 @@ Copy and paste this in config.json , configure it with your password, username ,
       "host": "host",
       "user": "username",
       "pwd": "password",
-      "db": "user"
+      "db": "database name"
     }
   },
   "development": {
@@ -29,7 +29,7 @@ Copy and paste this in config.json , configure it with your password, username ,
       "host": "host",
       "user": "username",
       "pwd": "password",
-      "db": "dbName"
+      "db": "database name"
     }
   }
 }
@@ -37,6 +37,11 @@ Copy and paste this in config.json , configure it with your password, username ,
 ```sh
 $ npm install
 ```
+```sh
+$ node bin/www
+```
+### Now you can make api request on 
+http://localhost:3000/api
 ## API DOCUMENTATION
 ### GET REQUEST API
 ```sh
