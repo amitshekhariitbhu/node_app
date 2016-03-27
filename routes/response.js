@@ -22,6 +22,10 @@ module.exports.notFound = {
     message : "notFound"
 };
 
+module.exports.Success = function(message){
+    this.message = message;
+};
+
 module.exports.UserData = function(result,message){
     this.message = message;
     this.id = result[0].id;
@@ -38,3 +42,4 @@ module.exports.HeaderData = function(token,message){
     this.message = message;
     this.token = token;
 };
+

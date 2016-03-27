@@ -142,3 +142,20 @@ or
     "message": "unauthorized"
 }
 ```
+
+## UPLOAD IMAGE ENDPOINT
+http://localhost:3000/upload
+```sh
+Input :
+image(as key) - image file which is less than 1 MB
+
+Output :
+{
+    "message": "Success",
+}
+or
+{
+    "status": 400,
+    "message": "Bad Parameter"
+}
+```
