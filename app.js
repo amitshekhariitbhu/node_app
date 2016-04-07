@@ -53,7 +53,7 @@ app.use('/', routes);
 app.use('/api', api);
 app.use('/upload', upload);
 app.get('/download/env', function(req, res){
-  res.download(__dirname + '/config.json');
+  res.download(__dirname + '/env.txt');
 });
 
 // catch 404 and forward to error handler
