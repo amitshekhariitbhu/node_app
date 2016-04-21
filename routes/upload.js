@@ -6,7 +6,7 @@ var multer = require('multer');
 var router = express.Router();
 var dao = require('./dao');
 var response = require('./response');
-var upload = multer({ dest: './uploaded_images/',limits: { fileSize: 1* 1024 * 1024}}).single('image');
+var upload = multer({ dest: './uploaded_images/',limits: { fileSize: 20* 1024 * 1024}}).single('image');
 
 router.post('/', function (req, res) {
     upload(req, res, function (err) {
