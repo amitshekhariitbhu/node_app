@@ -13,7 +13,7 @@ var upload = require('./routes/upload');
 
 var app = express();
 
-app.use(compression());
+app.use(compression({threshold: 0}))
 
 if(app.get('env')==='development') {
   console.log('mysql local server');
