@@ -1,3 +1,4 @@
+var compression = require('compression');
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -11,6 +12,8 @@ var api = require('./routes/api');
 var upload = require('./routes/upload');
 
 var app = express();
+
+app.use(compression());
 
 if(app.get('env')==='development') {
   console.log('mysql local server');
