@@ -9,7 +9,7 @@ var mysql = require('mysql');
 var config = require('./config.json');
 var routes = require('./routes/index');
 var api = require('./routes/api');
-var upload = require('./routes/upload');
+var upload = require('./api/controllers/upload');
 
 var app = express();
 

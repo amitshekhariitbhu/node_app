@@ -2,3 +2,8 @@
 node_modules/
 uploaded_images/
 config.json
+/.idea
+*/log/*
+*.log
+!/*/log/*.txt
+*.pem

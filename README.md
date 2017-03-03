@@ -38,7 +38,7 @@ Copy and paste this in config.json , configure it with your password, username ,
 $ npm install
 ```
 ```sh
-$ node bin/www
+$ node server.js
 ```
 ### Now you can make api request on 
 http://localhost:3000/api
@@ -53,23 +53,22 @@ limit can be provided as query parameter.
 
 Output :
 JsonArray of users data if success
- [
+{
+  "status_code": "success",
+  "message": "success",
+  "data": [
     {
-        "id": 1,
-        "firstname": "Amit",
-        "lastname": "Shekhar"
+      "id": 1,
+      "firstname": "Amit",
+      "lastname": "Shekhar"
     },
     {
-        "id": 2,
-        "firstname": "Rohit",
-        "lastname": "Kumar"
-    },
-    {
-        "id": 3,
-        "firstname": "Mohit",
-        "lastname": "Kumar"
+      "id": 2,
+      "firstname": "Lionel",
+      "lastname": "Messi"
     }
-]
+  ]
+}
 ```
 
 ```sh
@@ -80,11 +79,14 @@ userId to be provided as path parameter.
 
 Output :
 JsonObject of an user data if success
- {
-    "message": "Success",
+{
+  "status_code": "success",
+  "message": "success",
+  "data": {
     "id": 1,
     "firstname": "Amit",
     "lastname": "Shekhar"
+  }
 }
 ```
 
@@ -96,15 +98,15 @@ token to be provided in header.
 valid token is 1234
 
 Output :
-If token is valid it returns the same token otherwise unauthorized
- {
-    "message": "Success",
-    "token": "1234"
+If token is valid it returns the same token otherwise failed
+{
+  "status_code": "success",
+  "message": "token is valid"
 }
 or
 {
-    "status": 401,
-    "message": "unauthorized"
+  "status_code": "failed",
+  "message": "token is invalid"
 }
 ```
 ### POST REQUEST API
@@ -116,10 +118,15 @@ firstname
 lastname
 
 Output :
-It firstname and lastname is valid it returns the id with which it is created otherwise badRequest.
+It firstname and lastname is valid it returns the id with which it is created otherwise failed.
 {
-    "message": "Success",
-    "id": 27
+  "status_code": "success",
+  "message": "User Created Successfully.",
+  "data": {
+    "id": 1,
+    "firstname": "Amit",
+    "lastname": "Shekhar"
+  }
 }
 ```
 
@@ -131,15 +138,15 @@ token to be provided in header.
 valid token is 1234
 
 Output :
-If token is valid it returns the same token otherwise unauthorized
+If token is valid it returns the same token otherwise failed
 {
-    "message": "Success",
-    "token": "1234"
+  "status_code": "success",
+  "message": "token is valid"
 }
 or
 {
-    "status": 401,
-    "message": "unauthorized"
+  "status_code": "failed",
+  "message": "token is invalid"
 }
 ```
 
@@ -147,15 +154,16 @@ or
 http://localhost:3000/upload
 ```sh
 Input :
-image(as key) - image file which is less than 1 MB
+image(as key) - image file which is less than 20 MB
 
 Output :
 {
-    "message": "Success",
+  "status_code": "success",
+  "message": "Image Uploaded Successfully"
 }
 or
 {
-    "status": 400,
-    "message": "Bad Parameter"
+  "status_code": "failed",
+  "message": "Invalid Image Upload Request"
 }
 ```
